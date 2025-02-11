@@ -53,12 +53,17 @@ public class MovieImpl implements Movie {
   }
 
   @Override public boolean equals(Object o) {
-    // TODO: Implement equals
-    return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    MovieImpl movie = (MovieImpl) o;
+    return year == movie.year && title.equals(movie.title) && director.equals(movie.director);
   }
 
   @Override public int hashCode() {
-    // TODO: Implement hashCode
-    return 0;
+    return Objects.hash(title, director, year);
   }
 }
